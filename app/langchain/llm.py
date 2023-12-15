@@ -3,10 +3,14 @@ from langchain.agents.agent_toolkits import SQLDatabaseToolkit
 from langchain.agents.agent_types import AgentType
 from langchain.llms.openai import OpenAI
 from langchain.sql_database import SQLDatabase
+from dotenv import load_dotenv
+
 import os
 import time
 # openai_api_key : str = "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"
+load_dotenv()
 openai_api_key = os.environ.get("OPENAI_API_KEY")
+
 print(openai_api_key)
 if not openai_api_key:
     raise ValueError(
@@ -27,6 +31,6 @@ agent_executor = create_sql_agent(
 
 def llm_question_response(question: str):
     print(question)
-    time.sleep(20)
+    # time.sleep(20)
     response = agent_executor.run(f"{question}")
     return response
