@@ -1,0 +1,8 @@
+#Virtual Environment
+venv/
+
+alembic/
+
+__pycache__/
+.vscode/
+.pytest_cache/
